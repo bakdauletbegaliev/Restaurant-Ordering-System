@@ -8,7 +8,7 @@ import kz.restordering.order.OrderStatus;
 public final class OrderTracker {
     private final Order order;
     private final List<OrderObserver> subscribers = new ArrayList<>();
-    private OrderStatus status; // null until the order is placed
+    private OrderStatus status;
 
     public OrderTracker(Order order) {
         if (order == null) throw new IllegalArgumentException("Order is required");

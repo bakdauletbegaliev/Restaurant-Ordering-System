@@ -34,7 +34,7 @@ public final class RestaurantFacade {
             throw new IllegalArgumentException("Add at least one meal");
         }
         if (discountType == null) throw new IllegalArgumentException("Discount type required");
-        // Builder + Factory Method + Decorator (Bakdaulet)
+
         Order.Builder builder = new Order.Builder(nextOrderId, customer);
         for (MealSelection selection : selections) {
             if (selection == null) throw new IllegalArgumentException("Meal selection cannot be null");
@@ -45,9 +45,9 @@ public final class RestaurantFacade {
             builder.addMeal(meal);
         }
         Order order = builder.build();
-        // Strategy (Dias)
+
         PriceSummary price = new Checkout(discountType.createStrategy()).calculate(order);
-        // Observer (Dias)
+
         OrderTracker tracker = new OrderTracker(order);
         tracker.subscribe(new KitchenObserver(output));
         tracker.subscribe(new CustomerObserver(output));
