@@ -1,0 +1,24 @@
+=== RESTAURANT ORDERING SYSTEM: AUTOMATIC DEMO ===
+[KITCHEN] Order #1 -> PLACED
+[CUSTOMER] Aruzhan: Order #1 is PLACED
+RECEIPT #1 (Aruzhan)
+  Pizza + Cheese + Sauce: 3100 KZT
+  Burger + Olives: 2300 KZT
+  Subtotal: 5400 KZT | Discount: 540 KZT | Total: 4860 KZT
+[KITCHEN] Order #1 -> PREPARING
+[CUSTOMER] Aruzhan: Order #1 is PREPARING
+[KITCHEN] Order #1 -> READY
+[CUSTOMER] Aruzhan: Order #1 is READY
+[KITCHEN] Order #1 -> SERVED
+[CUSTOMER] Aruzhan: Order #1 is SERVED
+
+[KITCHEN] Order #2 -> PLACED
+[CUSTOMER] Dias: Order #2 is PLACED
+RECEIPT #2 (Dias)
+  Salad + Sauce: 1700 KZT
+  Subtotal: 1700 KZT | Discount: 255 KZT | Total: 1445 KZT
+
+FINAL ORDER LIST:
+#1 | Aruzhan | SERVED | 4860 KZT
+#2 | Dias | PLACED | 1445 KZT
+=== DEMO FINISHED SUCCESSFULLY ===

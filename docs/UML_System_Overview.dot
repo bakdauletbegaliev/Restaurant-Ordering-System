@@ -1,0 +1,22 @@
+
+digraph Overview {
+ graph [label="END-TO-END DESIGN | 6 PATTERNS, ONE APPLICATION",labelloc=t,fontname="DejaVu Sans",fontsize=21,bgcolor=white,rankdir=LR,pad=0.3,nodesep=0.5,ranksep=0.7]
+ node [shape=box,style="rounded,filled",fontname="DejaVu Sans",fontsize=13,margin="0.20,0.16",color="#667e97",fillcolor="#eef5fc"]
+ edge [color="#63778c",fontname="DejaVu Sans",fontsize=10,arrowsize=0.75,penwidth=1.5]
+ CLI [label="ConsoleApp\n(interactive / demo)",fillcolor="#e9f7ef",color="#398a61"]
+ Facade [label="RestaurantFacade\nFACADE / Dias",fillcolor="#d9f3e2",color="#398a61"]
+ Factory [label="FACTORY METHOD\nBakdaulet\nPizza / Burger / Salad"]
+ Decorator [label="DECORATOR\nBakdaulet\nCheese / Sauce / Olives"]
+ Builder [label="BUILDER\nBakdaulet\nOrder.Builder"]
+ Strategy [label="STRATEGY\nDias\n0% / 10% / 15%",fillcolor="#fff0d8",color="#b88238"]
+ Observer [label="OBSERVER\nDias\nOrderTracker",fillcolor="#fff0d8",color="#b88238"]
+ Notified [label="Kitchen + Customer\nstatus notifications",fillcolor="#fff9e9",color="#b88238"]
+ CLI -> Facade [label="placeOrder()"]
+ Facade -> Factory [label="createMeal()"]
+ Factory -> Decorator [label="base Meal"]
+ Decorator -> Builder [label="addMeal()"]
+ Builder -> Strategy [label="Order + subtotal"]
+ Strategy -> Observer [label="total / PLACED"]
+ Observer -> Notified [label="onStatusChanged()"]
+ Facade -> Observer [label="advanceOrder()",constraint=false,style=dashed]
+}

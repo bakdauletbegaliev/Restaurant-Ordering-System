@@ -1,0 +1,9 @@
+[PASS] Factory Method
+[PASS] Decorator stacking
+[PASS] Builder creates immutable multi-meal order
+[PASS] Strategy changes total
+[PASS] Observer receives and stops notifications
+[PASS] Facade integrates six patterns
+[PASS] Status guard
+[PASS] Invalid order rejected
+ALL 8 TESTS PASSED

@@ -1,0 +1,29 @@
+@startuml
+actor Customer
+participant ConsoleApp
+participant RestaurantFacade
+participant MealFactory
+participant "MealDecorator / Order.Builder" as Compose
+participant "Checkout (Strategy)" as Checkout
+participant "OrderTracker (Observer)" as Tracker
+participant "Kitchen / Customer Observers" as Listeners
+Customer -> ConsoleApp: choose dishes, extras, discount
+ConsoleApp -> RestaurantFacade: placeOrder(customer, selections, discount)
+loop for each selected meal
+  RestaurantFacade -> MealFactory: createMeal()
+  MealFactory --> RestaurantFacade: Meal
+  RestaurantFacade -> Compose: decorate + addMeal(Meal)
+end
+RestaurantFacade -> Compose: build()
+Compose --> RestaurantFacade: Order
+RestaurantFacade -> Checkout: calculate(Order)
+Checkout --> RestaurantFacade: PriceSummary
+RestaurantFacade -> Tracker: subscribe(kitchen, customer)
+RestaurantFacade -> Tracker: changeStatus(PLACED)
+Tracker -> Listeners: onStatusChanged(PLACED)
+RestaurantFacade --> ConsoleApp: OrderSummary + receipt
+Customer -> ConsoleApp: next status
+ConsoleApp -> RestaurantFacade: advanceOrder(id)
+RestaurantFacade -> Tracker: changeStatus(PREPARING / READY / SERVED)
+Tracker -> Listeners: onStatusChanged(next)
+@enduml
