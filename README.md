@@ -71,7 +71,6 @@ The project includes eight automated tests.
 - `docs/` — UML class and sequence diagrams.
 - `screenshots/` — application output and test screenshots.
 - `report/` — final PDF project report.
-- `defense/` — preparation notes for the project defense.
 - `TEAM_CONTRIBUTIONS.md` — team responsibility summary.
 
 ## Future Improvements
